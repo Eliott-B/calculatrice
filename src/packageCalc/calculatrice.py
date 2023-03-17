@@ -62,3 +62,16 @@ class Calculatrice():
         if s == -1:
             return -res
         return res
+
+    def produitMatrice(self, a, b):
+        if len(a[0])!=len(b):
+            return None
+        res = []
+        for i in range(len(a)):
+            res.append([])
+            for j in range(len(a[i])-1):
+                cel = 0
+                for k in range(len(b)):
+                    cel += a[i][k]*b[k][j]
+                res[i].append(cel)
+        return res
