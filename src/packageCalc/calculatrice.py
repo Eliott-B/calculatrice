@@ -48,3 +48,17 @@ class Calculatrice():
                 b -= 1
                 res = self.addition(res,a)
         return res
+
+    def division(self, a, b):
+        if b == 0:
+            return None
+        s = 1
+        if (a < 0) ^ (b < 0):
+            s = -1
+        res = 0
+        a,b = abs(a),abs(b)
+        while self.multiplication(res,b) < a:
+            res += 1
+        if s == -1:
+            return -res
+        return res
