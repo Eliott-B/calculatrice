@@ -58,5 +58,18 @@ class TestCalculatrice(unittest.TestCase):
                 obtenu = self.calculatrice.division(a, b)
                 self.assertEqual(attendu, obtenu, "test case %d" % (index + 1))
 
+    def test_matrice(self):
+        a_data = [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]]]
+        b_data = [[[12, 4],[43, 12],[1, 2]], [[3, 6], [12, 32]]]
+        attendu_data = [[[12, 4],[43, 12],[1, 2]], None]
+
+        for index in range(len(attendu_data)):
+            a = a_data[index]
+            b = b_data[index]
+            attendu = attendu_data[index]
+            with self.subTest(a=a, b=b, attendu=attendu):
+                obtenu = self.calculatrice.produitMatrice(a, b)
+                self.assertEqual(attendu, obtenu, "test case %d" % (index + 1))
+
 if __name__ == '__main__':
     unittest.main()
