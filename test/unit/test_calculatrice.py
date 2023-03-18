@@ -31,6 +31,19 @@ class TestCalculatrice(unittest.TestCase):
             with self.subTest(a=a, b=b, attendu=attendu):
                 obtenu = self.calculatrice.soustraction(a, b)
                 self.assertEqual(attendu, obtenu, "test case %d" % (index + 1))
+                
+    def test_multiplication(self):
+        a_data = [10,-53, 12, -45,-42, 0]
+        b_data = [10,2,-17, -7, 0, 17]
+        attendu_data = [100, -106, -204, 315, 0]
+
+        for index in range(len(attendu_data)):
+            a = a_data[index]
+            b = b_data[index]
+            attendu = attendu_data[index]
+            with self.subTest(a=a, b=b, attendu=attendu):
+                obtenu = self.calculatrice.multiplication(a, b)
+                self.assertEqual(attendu, obtenu, "test case %d" % (index + 1))
 
 if __name__ == '__main__':
     unittest.main()
